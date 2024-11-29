@@ -8,6 +8,7 @@
 
 // Ao clicar no botão soma, peça 2 números inteiros e exiba o resultado da soma em um alerta.
 
+//test
 
 let titulo = document.querySelector('h1');
 titulo.innerHTML = 'Hora do desafio';
