@@ -1,3 +1,5 @@
+let listaDeNumerosSorteados = [];
+let numeroLimite = 10;
 let numeroSecreto = gerarNumeroAleatorio();
 let tentativas = 1;
 
@@ -36,7 +38,14 @@ function verificarChute() {
 }
 
 function gerarNumeroAleatorio() {
-    return parseInt(Math.random()*10+1); 
+    let numeroEscolhido = parseInt(Math.random()*numeroLimite+1); 
+    if(listaDeNumerosSorteados.includes(numeroEscolhido)){
+        return gerarNumeroAleatorio();
+    }else{
+        listaDeNumerosSorteados.push(numeroEscolhido);
+        console.log(listaDeNumerosSorteados);
+        return numeroEscolhido;
+    }
 }
 
 function limparCampo(){
@@ -45,9 +54,18 @@ function limparCampo(){
 }
 
 function reiniciarJogo(){
-    numeroSecreto = gerarNumeroAleatorio();
-    limparCampo();
-    tentativas = 1;
-    exibirMensagemInicial();
-    document.getElementById('reiniciar').setAttribute('disabled',true);
+    let quantidadeElementosNaLista = listaDeNumerosSorteados.length;
+    if(quantidadeElementosNaLista == numeroLimite){
+        listaDeNumerosSorteados=[];
+        exibirTextoNaTela('h1','Parabens você Acertou todos os numeros disponiveis');
+        exibirTextoNaTela('p','');
+        limparCampo();
+    }else{
+        numeroSecreto = gerarNumeroAleatorio();
+        limparCampo();
+        tentativas = 1;
+        exibirMensagemInicial();
+        document.getElementById('reiniciar').setAttribute('disabled',true);
+    }
 }
+    
