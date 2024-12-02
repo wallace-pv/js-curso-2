@@ -54,11 +54,11 @@ function tabuada(number) {
 //Uso das Funções
 
 console.log(calcularIMC(170,120));
-console.log(calcularfatorial(6));
+console.log(calcularfatorial(10));
 console.log(calcularCambio(10));
 areaEPerimetroRetangular(4,2);
 calcularAreaEPerimetroCircular(24);
-tabuada(5);
+tabuada(9);
 
 //implementacao no html ???
 function exibirTextoNaTela(tag, texto){
